@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20240627-1131-Experimental"
+	Name="kiyanoush-XPS-13-9370"
+	Generator="ctest-3.16.3"
+	CompilerName="/usr/lib/ccache/c++"
+	CompilerVersion="9.4.0"
+	OSName="Linux"
+	Hostname="kiyanoush-XPS-13-9370"
+	OSRelease="5.15.0-107-generic"
+	OSVersion="#117~20.04.1-Ubuntu SMP Tue Apr 30 10:35:57 UTC 2024"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="142"
+	ProcessorCacheSize="8192"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="3905"
+	TotalPhysicalMemory="7637"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2329.04"
+	>
+	<Testing>
+		<StartDateTime>Jun 27 12:31 BST</StartDateTime>
+		<StartTestTime>1719487867</StartTestTime>
+		<TestList/>
+		<EndDateTime>Jun 27 12:31 BST</EndDateTime>
+		<EndTestTime>1719487867</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

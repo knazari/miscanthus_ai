@@ -3,6 +3,6 @@ prefix=/usr/local
 Name: viper_ros
 Description: Description of viper_ros
 Version: 0.0.0
-Cflags: 
+Cflags: -I${prefix}/include
 Libs: -L${prefix}/lib 
-Requires: 
+Requires: message_runtime std_msgs sensor_msgs

@@ -59,7 +59,7 @@
   <node if="$(arg use_python_interface)"
     name="my_python_interface"
     pkg="viper_ros"
-    type="move_viper.py"
+    type="move_viper_arc3.py"
     respawn="false"
     output="screen"
     ns="$(arg robot_name)">

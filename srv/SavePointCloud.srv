@@ -1,0 +1,5 @@
+# Request
+string filename
+---
+# Response
+bool success

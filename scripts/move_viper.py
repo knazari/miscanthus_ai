@@ -25,7 +25,7 @@ from viper_moveit_class import MoveGroupPythonIntefaceTutorial
 class viper_robot:
     def __init__(self):
         self.viper_moveit = MoveGroupPythonIntefaceTutorial()
-        self.save_dir = "/home/kiyanoush/miscanthus_ws/src/viper_ros/data/10"
+        self.save_dir = "/home/kiyanoush/miscanthus_ws/src/viper_ros/data/11"
 
     def go_sleep_pose(self):
         goal_pose = geometry_msgs.msg.Pose()
@@ -60,7 +60,7 @@ class viper_robot:
 
         time.sleep(1)
         
-        self.capture_camera_data(self.save_dir, "pose"+str(1))
+        # self.capture_camera_data(self.save_dir, "pose"+str(1))
 
         time.sleep(1)
 
@@ -73,7 +73,7 @@ class viper_robot:
 
         time.sleep(1)
         
-        self.capture_camera_data(self.save_dir, "pose"+str(2))
+        # self.capture_camera_data(self.save_dir, "pose"+str(2))
 
         time.sleep(1)
 
@@ -85,7 +85,7 @@ class viper_robot:
 
         time.sleep(1)
         
-        self.capture_camera_data(self.save_dir, "pose"+str(3))
+        # self.capture_camera_data(self.save_dir, "pose"+str(3))
 
         time.sleep(1)
 
@@ -102,7 +102,7 @@ class viper_robot:
 
         time.sleep(1)
         
-        self.capture_camera_data(self.save_dir, "pose"+str(4))
+        # self.capture_camera_data(self.save_dir, "pose"+str(4))
 
         time.sleep(1)
 
@@ -119,7 +119,7 @@ class viper_robot:
 
         time.sleep(1)
         
-        self.capture_camera_data(self.save_dir, "pose"+str(5))
+        # self.capture_camera_data(self.save_dir, "pose"+str(5))
 
         time.sleep(1)
 

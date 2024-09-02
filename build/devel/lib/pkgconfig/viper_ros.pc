@@ -3,6 +3,6 @@ prefix=/home/kiyanoush/miscanthus_ws/src/viper_ros/build/devel
 Name: viper_ros
 Description: Description of viper_ros
 Version: 0.0.0
-Cflags: 
+Cflags: -I/home/kiyanoush/miscanthus_ws/src/viper_ros/build/devel/include
 Libs: -L${prefix}/lib 
-Requires: 
+Requires: message_runtime std_msgs sensor_msgs

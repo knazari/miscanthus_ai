@@ -1,0 +1,9 @@
+<launch>
+  <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+    <arg name="enable_pointcloud" value="true"/>
+    <arg name="align_depth" value="true"/>
+  </include>
+
+  <!-- Static transform from world to camera_depth_frame -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="world_to_camera_static_tf" args="0 0 0 0 0 0 world camera_link" />
+</launch>
