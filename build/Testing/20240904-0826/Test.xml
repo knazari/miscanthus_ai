@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Site BuildName="(empty)"
-	BuildStamp="20240902-1043-Experimental"
+	BuildStamp="20240904-0826-Experimental"
 	Name="kiyanoush-XPS-13-9370"
 	Generator="ctest-3.16.3"
 	CompilerName="/usr/lib/ccache/c++"
@@ -21,14 +21,14 @@
 	TotalVirtualMemory="3905"
 	TotalPhysicalMemory="7637"
 	LogicalProcessorsPerPhysical="2"
-	ProcessorClockFrequency="2000"
+	ProcessorClockFrequency="3091.6"
 	>
 	<Testing>
-		<StartDateTime>Sep 02 14:17 BST</StartDateTime>
-		<StartTestTime>1725283056</StartTestTime>
+		<StartDateTime>Sep 04 11:43 BST</StartDateTime>
+		<StartTestTime>1725446594</StartTestTime>
 		<TestList/>
-		<EndDateTime>Sep 02 14:17 BST</EndDateTime>
-		<EndTestTime>1725283056</EndTestTime>
+		<EndDateTime>Sep 04 11:43 BST</EndDateTime>
+		<EndTestTime>1725446594</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>
