@@ -45,11 +45,11 @@ R_y = cropped_pcd.get_rotation_matrix_from_axis_angle(rotation_angle_y_radians *
 R_z = cropped_pcd.get_rotation_matrix_from_axis_angle(rotation_angle_z_radians * np.array([0, 0, 1]))
 
 # Apply the rotations to the point cloud
-cropped_pcd.rotate(R_y, center=(0, 0, 0))
-cropped_pcd.rotate(R_z, center=(0, 0, 0))
+# cropped_pcd.rotate(R_y, center=(0, 0, 0))
+# cropped_pcd.rotate(R_z, center=(0, 0, 0))
 
 # Save the cropped point cloud to a file (e.g., as "cropped_pointcloud.pcd")
-o3d.io.write_point_cloud(root_path + "/front_cropped.pcd", cropped_pcd)
+o3d.io.write_point_cloud(root_path + "/front_cropped_no_rot.pcd", cropped_pcd)
 print("Cropped point cloud saved as 'cropped_pointcloud.pcd'.")
 
 
