@@ -1,17 +1,28 @@
-import open3d as o3d
+import os
 import cv2
 import numpy as np
+import open3d as o3d
 
 def segment_plant_using_rgb(rgb_image):
     # Convert RGB image to HSV color space for better segmentation
     hsv_image = cv2.cvtColor(rgb_image, cv2.COLOR_BGR2HSV)
 
     # Define the range of colors for the plant (e.g., green hues)
-    lower_green = np.array([35, 40, 40])
-    upper_green = np.array([85, 255, 255])
+    lower_green = np.array([35, 25, 25])
+    upper_green = np.array([111, 255, 255])
 
     # Threshold the image to get only the green parts (the plant)
     mask = cv2.inRange(hsv_image, lower_green, upper_green)
+
+    # Apply the mask to the original RGB image to visualize the segmentation
+    segmented_plant = cv2.bitwise_and(rgb_image, rgb_image, mask=mask)
+
+    # Show the original and segmented images side by side
+    cv2.imshow('Original RGB Image', rgb_image)
+    cv2.imshow('Segmented Plant', segmented_plant)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
 
     return mask
 
@@ -21,8 +32,11 @@ def project_pointcloud_to_image(pcd, intrinsic, extrinsic, image_shape):
     # Convert 3D points to 4D (homogeneous coordinates)
     points_homogeneous = np.concatenate([points, np.ones((points.shape[0], 1))], axis=1)
 
-    # Project the 3D points onto the 2D image plane
-    projected_points = intrinsic @ extrinsic @ points_homogeneous.T
+    # Apply the extrinsic matrix (4x4) to transform the 3D points into camera coordinates
+    transformed_points = (extrinsic @ points_homogeneous.T).T
+
+    # Now apply the intrinsic matrix (3x3) to project the 3D points to 2D image plane
+    projected_points = intrinsic @ transformed_points[:, :3].T
 
     # Normalize the projected points by the third (z) coordinate to get (u, v) pixel coordinates
     projected_points /= projected_points[2, :]
@@ -82,8 +96,12 @@ def main(pcd_file, rgb_file):
     o3d.io.write_point_cloud("filtered_pointcloud.pcd", filtered_pcd)
 
 if __name__ == "__main__":
-    root_path = "/home/kiyanoush/miscanthus_ws/src/viper_ros/data/walled_garden_30th_july"
-    pcd_file = root_path + "/front_cropped_no_rot.pcd"
-    rgb_file = root_path + "/011/color_4.png"  # Optional
-    depth_file_path = root_path + "/011/depth_4.png"  # Optional
+    # Get the path of the current script
+    current_dir = os.path.dirname(__file__)
+
+    # Construct the relative path to the folder
+    data_folder = os.path.join(current_dir, '..', 'data')
+    pcd_file = data_folder + "/walled_garden_30th_july/front_cropped_no_rot.pcd"
+    rgb_file = data_folder + "/walled_garden_30th_july/011/color_4.png"  # Optional
+    depth_file_path = data_folder + "/walled_garden_30th_july/011/depth_4.png"  # Optional
     main(pcd_file, rgb_file)
