@@ -2,8 +2,17 @@
   <include file="$(find realsense2_camera)/launch/rs_camera.launch">
     <arg name="enable_pointcloud" value="true"/>
     <arg name="align_depth" value="true"/>
+    <arg name="color_width" value="640"/>
+    <arg name="color_height" value="480"/>
+    <arg name="depth_width" value="640"/>
+    <arg name="depth_height" value="480"/>
+    <arg name="color_fps" value="30"/>
+    <arg name="depth_fps" value="30"/>
   </include>
 
   <!-- Static transform from world to camera_depth_frame -->
   <node pkg="tf2_ros" type="static_transform_publisher" name="world_to_camera_static_tf" args="0 0 0 0 0 0 world camera_link" />
+
+  <!-- Start RViz with the predefined configuration -->
+  <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find viper_ros)/config/realsense_pointcloud.rviz" /> -->
 </launch>

@@ -34,15 +34,16 @@ def handle_save_pointcloud(req):
     # Adjust the reading based on available fields
     points_list = []
     for point in pc2.read_points(current_pointcloud, skip_nans=True):
-        if 'rgb' in field_names:
-            # Unpack RGB value from float
-            rgb_packed = struct.unpack('I', struct.pack('f', point[3]))[0]
-            r = (rgb_packed >> 16) & 0xFF
-            g = (rgb_packed >> 8) & 0xFF
-            b = rgb_packed & 0xFF
-            points_list.append([point[0], point[1], point[2], r, g, b])
-        else:
-            points_list.append([point[0], point[1], point[2], 255, 255, 255])  # Default to white color if no RGB
+        if point[2] < 3.0:  # z is the third element in the point tuple
+            if 'rgb' in field_names:
+                # Unpack RGB value from float
+                rgb_packed = struct.unpack('I', struct.pack('f', point[3]))[0]
+                r = (rgb_packed >> 16) & 0xFF
+                g = (rgb_packed >> 8) & 0xFF
+                b = rgb_packed & 0xFF
+                points_list.append([point[0], point[1], point[2], r, g, b])
+            else:
+                points_list.append([point[0], point[1], point[2], 255, 255, 255])  # Default to white color if no RGB
 
     np_points = np.asarray(points_list)
     o3d_pcd = o3d.geometry.PointCloud()
