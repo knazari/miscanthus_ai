@@ -23,7 +23,7 @@ from viper_moveit_class import MoveGroupPythonIntefaceTutorial
 class viper_robot:
     def __init__(self):
         self.viper_moveit = MoveGroupPythonIntefaceTutorial()
-        self.save_dir = "/home/kiyanoush/miscanthus_ws/src/viper_ros/data/walled_garden_19th_september"
+        self.save_dir = "/home/kiyanoush/miscanthus_ws/src/viper_ros/data/walled_garden_4th_october/011"
         self.viper_moveit.group.set_max_velocity_scaling_factor(0.6)
         self.collecting_data = False
         self.pose_id = 0

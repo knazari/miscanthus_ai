@@ -22,7 +22,7 @@ def visualize_point_cloud(file_path):
 
 if __name__ == "__main__":
     # Specify the path to the .ply file
-    file_path = "/home/kiyanoush/miscanthus_ws/src/viper_ros/data/walled_garden_24th_Sep_linseed/001/pointcloud_0__20240924-110958.ply"
+    file_path = "/home/kiyanoush/miscanthus_ws/src/viper_ros/data/walled_garden_4th_october/003/pointcloud_3__20240924-112920.ply"
 
     # Visualize the point cloud
     visualize_point_cloud(file_path)
