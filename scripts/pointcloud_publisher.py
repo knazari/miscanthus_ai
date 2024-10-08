@@ -34,7 +34,7 @@ def handle_save_pointcloud(req):
     # Adjust the reading based on available fields
     points_list = []
     for point in pc2.read_points(current_pointcloud, skip_nans=True):
-        if point[2] < 3.0:  # z is the third element in the point tuple
+        if point[2] < 4.0:  # z is the third element in the point tuple
             if 'rgb' in field_names:
                 # Unpack RGB value from float
                 rgb_packed = struct.unpack('I', struct.pack('f', point[3]))[0]

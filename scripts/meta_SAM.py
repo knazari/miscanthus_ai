@@ -11,14 +11,14 @@ current_dir = os.path.dirname(__file__)
 # Construct the relative path to the folder
 data_folder = os.path.join(current_dir, '..', 'data')
 # Load the image
-image_path = data_folder + "/walled_garden_30th_july/011/color_4.png"
+image_path = data_folder + "/walled_garden_4th_october/001/color_5.png"
 # image_path = "/home/kia/Downloads/miscanthus_far_view.jpg"
 image = cv2.imread(image_path)
 image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
 
 # Load the SAM model (using the ViT-H variant)
-sam_checkpoint = "sam_vit_h_4b8939.pth"  # Path to the downloaded checkpoint
+sam_checkpoint = data_folder + "/sam_vit_h_4b8939.pth"  # Path to the downloaded checkpoint
 model_type = "vit_h"
 sam = sam_model_registry[model_type](checkpoint=sam_checkpoint)
 predictor = SamPredictor(sam)
@@ -42,9 +42,22 @@ def on_click(event):
 
         # Display the segmented mask on the image
         mask = masks[0]
-        plt.imshow(image_rgb)
-        plt.imshow(mask, alpha=0.5, cmap='jet')
+
+        # Apply the mask to the original image
+        segmented_image = np.copy(image_rgb)
+        segmented_image[mask == 0] = 0  # Mask out the background (set to black)
+
+        # Save the segmented image
+        segmented_image_bgr = cv2.cvtColor(segmented_image, cv2.COLOR_RGB2BGR)
+        cv2.imwrite(data_folder + "/segmented_miscanthus_image.jpg", segmented_image_bgr)
+        print("Segmented image saved as 'segmented_plant_image.jpg'")
+
+        # Show the segmented image
+        plt.imshow(segmented_image)
         plt.title("Segmented Plant")
+        # plt.imshow(image_rgb)
+        # plt.imshow(mask, alpha=0.5, cmap='jet')
+        # plt.title("Segmented Plant")
         plt.show()
 
 # Plot the image and set up the click event
