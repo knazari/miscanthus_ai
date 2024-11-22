@@ -11,7 +11,7 @@ current_dir = os.path.dirname(__file__)
 # Construct the relative path to the folder
 data_folder = os.path.join(current_dir, '..', 'data')
 # Load the image
-image_path = data_folder + "/walled_garden_4th_october/001/color_5.png"
+image_path = data_folder + "/walled_garden_4th_october/011/color_4.png"
 # image_path = "/home/kia/Downloads/miscanthus_far_view.jpg"
 image = cv2.imread(image_path)
 image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -49,7 +49,7 @@ def on_click(event):
 
         # Save the segmented image
         segmented_image_bgr = cv2.cvtColor(segmented_image, cv2.COLOR_RGB2BGR)
-        cv2.imwrite(data_folder + "/segmented_miscanthus_image.jpg", segmented_image_bgr)
+        cv2.imwrite(data_folder + "/front_color_segmented.jpg", segmented_image_bgr)
         print("Segmented image saved as 'segmented_plant_image.jpg'")
 
         # Show the segmented image

@@ -73,8 +73,8 @@ class PointCloudSegmenter:
 
 
 if __name__ == "__main__":
-    pointcloud_path = "/home/kia/Kiyanoush/Github/miscanthus_ai/data/walled_garden_4th_october/001/pointcloud_5__20241004-144147.ply"
-    segmented_image_path = "/home/kia/Kiyanoush/Github/miscanthus_ai/data/segmented_miscanthus_image.jpg"
+    pointcloud_path = "/home/kia/Kiyanoush/Github/miscanthus_ai/data/walled_garden_4th_october/front_transformed.ply"
+    segmented_image_path = "/home/kia/Kiyanoush/Github/miscanthus_ai/data/walled_garden_4th_october/front_color_segmented.jpg"
 
     # Initialize the segmenter
     segmenter = PointCloudSegmenter(pointcloud_path, segmented_image_path)
@@ -83,6 +83,6 @@ if __name__ == "__main__":
     filtered_pointcloud = segmenter.filter_pointcloud_by_mask()
 
     # Save the segmented pointcloud
-    saved_file_name = "/home/kia/Kiyanoush/Github/miscanthus_ai/data/segmented_pointcloud.ply"
+    saved_file_name = "/home/kia/Kiyanoush/Github/miscanthus_ai/data/walled_garden_4th_october/front_pcd_segmented.ply"
     segmenter.save_pointcloud(filtered_pointcloud, filename=saved_file_name)
 

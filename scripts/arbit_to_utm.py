@@ -33,20 +33,24 @@ def save_point_cloud(pcd, file_path):
     o3d.io.write_point_cloud(file_path, pcd)
 
 def main():
-    input_file = '/home/kiyanoush/miscanthus_ws/src/viper_ros/data/walled_garden_30th_july/left_cropped.pcd'
-    output_file = '/home/kiyanoush/miscanthus_ws/src/viper_ros/data/walled_garden_30th_july/left_transformed_2HR.pcd'
+    input_file = '/home/kia/Kiyanoush/Github/miscanthus_ai/data/walled_garden_4th_october/left_cropped.ply'
+    output_file = '/home/kia/Kiyanoush/Github/miscanthus_ai/data/walled_garden_4th_october/left_transformed.ply'
     
     # Load the point cloud
     pcd = load_point_cloud(input_file)
     
     # Front view Key points
-    source_points = np.array([[0.220, -0.430, -1.470], [0.020, -0.410, -1.910], [0.040, -0.540, -1.090]])
-    # target_points = np.array([[6.500, -2.500, -15.200], [7.200, -3.200, -15.300], [7.200, -1.600, -15.300]])
-    target_points = np.array([[-6.800, -10.500, -16.900], [-6.500, -11.100, -17.000], [-6.700, -10.200, -16.800]])
+    # source_points = np.array([[-0.190, -0.660, -2.160], [0.270, -0.540, -2.400], [0.850, -0.620, -2.180]])
+    # target_points = np.array([[-7.100, -10.100, -16.900], [-6.800, -10.500, -16.900], [-6.900, -11.200, -16.900]])
 
     # Right view Key points
-    # source_points = np.array([[-0.280, -0.490, -1.620], [0.690, -0.410, -1.230], [0.760, -0.390, -2.120]])
-    # target_points = np.array([[6.200, -2.500, -15.400], [7.800, -2.900, -15.400], [7.800, -1.700, -15.300]])
+    # source_points = np.array([[-0.330, -0.470, -2.870], [-0.140, -0.560, -2.400], [-0.350, -0.720, -1.930]])
+    # target_points = np.array([[-7.100, -10.100, -16.900], [-6.800, -10.500, -16.900], [-6.900, -11.200, -16.900]])
+    # target_points = np.array([[664957.128282, 5904962.668081, 84.997], [664957.183929, 5904961.944679, 85.216], [664957.406514, 5904961.357302, 84.896]])
+
+    # Left view Key points
+    source_points = np.array([[0.660, -0.680, -1.490], [0.400, -0.530, -2.080], [0.700, -0.420, -2.590]])
+    target_points = np.array([[-7.100, -10.100, -16.900], [-6.800, -10.500, -16.900], [-6.900, -11.200, -16.900]])
     
     # Compute the transformation matrix
     transformation_matrix = compute_transformation(source_points, target_points)
