@@ -2,10 +2,10 @@ import open3d as o3d
 import numpy as np
 
 # Load the point cloud from a .pcd file
-pcd = o3d.io.read_point_cloud("/home/kia/Downloads/UGV UAV reference pictures October 3rd 2024/Walled Garden 24 10 04.ply")  # Change to your file path
+pcd = o3d.io.read_point_cloud("/home/kia/Kiyanoush/Github/miscanthus_ai/data/walled_garden_4th_october/left_cropped.ply")  # Change to your file path
 
 # Create a small red sphere as the marker
-def create_marker(radius=0.1, color=[1, 0, 0], position=[0, 0, 0]):
+def create_marker(radius=0.01, color=[1, 0, 0], position=[0, 0, 0]):
     sphere = o3d.geometry.TriangleMesh.create_sphere(radius=radius)
     sphere.paint_uniform_color(color)
     sphere.translate(position)
@@ -28,32 +28,32 @@ def update_marker_position(vis, new_position):
 # Key callback functions to move the marker in different directions
 def move_forward(vis):
     global marker_position
-    marker_position[2] += 0.1  # Move along z-axis
+    marker_position[2] += 0.01  # Move along z-axis
     update_marker_position(vis, marker_position)
 
 def move_backward(vis):
     global marker_position
-    marker_position[2] -= 0.1  # Move along z-axis
+    marker_position[2] -= 0.01  # Move along z-axis
     update_marker_position(vis, marker_position)
 
 def move_left(vis):
     global marker_position
-    marker_position[0] -= 0.1  # Move along x-axis
+    marker_position[0] -= 0.01  # Move along x-axis
     update_marker_position(vis, marker_position)
 
 def move_right(vis):
     global marker_position
-    marker_position[0] += 0.1  # Move along x-axis
+    marker_position[0] += 0.01  # Move along x-axis
     update_marker_position(vis, marker_position)
 
 def move_up(vis):
     global marker_position
-    marker_position[1] += 0.1  # Move along y-axis
+    marker_position[1] += 0.01  # Move along y-axis
     update_marker_position(vis, marker_position)
 
 def move_down(vis):
     global marker_position
-    marker_position[1] -= 0.1  # Move along y-axis
+    marker_position[1] -= 0.01  # Move along y-axis
     update_marker_position(vis, marker_position)
 
 # Visualize the point cloud and the marker

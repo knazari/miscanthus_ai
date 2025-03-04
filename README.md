@@ -9,7 +9,7 @@ A brief description of what this project does and who it's for.
 - [Installation](#installation)
 - [Usage](#usage)
 - [SAM](#sam)
-- [Features](#features)
+- [COLMAP](#colmap)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
@@ -116,5 +116,114 @@ Click-Based Segmentation:
         The model predicts the segmentation mask based on the clicked point and shows the result by overlaying the mask on the original image.
 
 Visualization: The matplotlib library is used to display the image and the segmented mask.
+
+## COLMAP
+use a pre-built Docker image for COLMAP, which simplifies the setup process. This approach will let you run COLMAP in a container without manually configuring dependencies.
+
+Here’s how to use COLMAP via Docker:
+
+Install Docker if you haven’t already:
+
+```bash
+sudo apt update
+sudo apt install docker.io
+```
+
+Pull a COLMAP Docker image:
+
+```bash
+docker pull colmap/colmap
+```
+To run the docker container with a GUI support we need the xhost package:
+
+```bash
+sudo apt install x11-xserver-utils
+xhost +local:docker
+```
+To enable the docker container to use the NVIDIA graphic card, we need to install the NVIDIA Container Toolkit:
+```bash
+sudo apt update
+sudo apt install -y nvidia-docker2
+sudo systemctl restart docker
+```
+
+Run COLMAP in a Docker container:
+```bash
+docker run -it --rm \
+    --gpus all \
+    -e DISPLAY=$DISPLAY \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -v $(pwd):/data \
+    colmap/colmap colmap gui
+```
+This command:
+
+* Adds the --gpus all flag to enable GPU access inside the container.
+* Exports the display environment and mounts the X11 socket for GUI access.
+* Mounts the current directory to /data for accessing files inside the container.
+
+To stop running a docker container you first list them and end the one with correponding id:
+```bash
+docker ps
+docker stop <container_id_or_name>
+```
+### Performing feature extraction and matching
+Now that you have the COLMAP GUI running in Docker, you can follow these steps to load the images, perform feature extraction and matching, and generate the camera poses.
+
+Step 1: Set Up a New Project
+
+ 1. Create a New Project:
+ • In the COLMAP GUI, go to File > New Project.
+ • Set the Project Folder to the mounted folder where your images are located (for example, /data if you mounted the current directory).
+ • Set the Image Folder to the directory containing your extracted frames.
+ • Save the project file (e.g., project.colmap).
+ 2. Set Up Database Path:
+ • In the Database field, create a new database file in the same project folder (e.g., /data/database.db).
+ • Click Save to finalize your project setup.
+
+Step 2: Feature Extraction
+
+ 1. Feature Extraction:
+ • Go to Processing > Feature Extraction.
+ • In the Feature Extraction dialog:
+ • Verify that the Image Folder points to your images folder.
+ • Leave the other settings as default.
+ • Click Run to start feature extraction. COLMAP will detect features (keypoints) in each image, which are necessary for matching.
+ 2. Wait for Completion:
+ • This step might take some time, depending on the number of images and the complexity of the scene.
+ • Once complete, you should see output logs indicating the number of features detected per image.
+
+Step 3: Feature Matching
+
+ 1. Exhaustive Feature Matching:
+ • Go to Processing > Exhaustive Matching.
+ • Click Run to start feature matching.
+ • This step will compare features across all image pairs and determine matches, which is crucial for estimating camera poses.
+
+Step 4: Sparse Reconstruction (Mapping)
+
+ 1. Sparse Reconstruction:
+ • Go to Reconstruction > Start Reconstruction to initiate the sparse reconstruction (also known as mapping).
+ • In the Mapper settings, set the Database Path and Image Folder to their respective locations.
+ • Set the Output Path to a new folder in your project directory (e.g., /data/sparse).
+ • Click Run to start the mapping process.
+ 2. View the Sparse Model:
+ • Once the sparse reconstruction completes, you should see a sparse 3D model of the scene and the estimated camera poses in the 3D viewer.
+ • You can navigate around the scene using the mouse to inspect the point cloud and camera locations.
+
+Step 5: Export Camera Poses for NeRF
+
+ 1. Export the Poses:
+ • Go to File > Export > Export model as… and choose the TEXT format.
+ • Set the export path to a new folder (e.g., /data/sparse_model).
+ 2. Locate images.txt:
+ • In the exported sparse_model folder, you’ll find a file named images.txt, which contains the camera poses in a format we can parse for NeRF.
+
+Summary of Files for NeRF
+
+After completing these steps, the key file for NeRF is:
+ • images.txt: Contains camera poses for each image (frame).
+
+You’re now ready to parse the images.txt file and convert it into a format suitable for the NeRF pipeline.
 
 

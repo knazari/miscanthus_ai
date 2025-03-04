@@ -1,14 +1,16 @@
 import open3d as o3d
 import numpy as np
 
-root_path = "/home/kiyanoush/miscanthus_ws/src/viper_ros/data/walled_garden_30th_july"
+root_path = "/home/kia/Kiyanoush/Github/miscanthus_ai/data/walled_garden_4th_october"
 # Load the point cloud from a .pcd file
-pcd = o3d.io.read_point_cloud(root_path + "/011/pointcloud_4__20240730-125423.ply")
+# pcd = o3d.io.read_point_cloud(root_path + "/011/pointcloud_4__20241004-151550.ply")
+# pcd = o3d.io.read_point_cloud(root_path + "/001/pointcloud_4__20241004-144141.ply")
+pcd = o3d.io.read_point_cloud(root_path + "/006/pointcloud_5__20241004-145928.ply")
 
 # Crop the point cloud based on the depth (z component)
 # Adjust the min_z and max_z values according to your needs
 min_z = 0.01  # minimum depth
-max_z = 2.5  # maximum depth
+max_z = 4  # maximum depth
 
 # Apply a depth filter to keep only the points within the specified range
 def crop_point_cloud_by_depth(pcd, min_z, max_z):
@@ -45,12 +47,12 @@ R_y = cropped_pcd.get_rotation_matrix_from_axis_angle(rotation_angle_y_radians *
 R_z = cropped_pcd.get_rotation_matrix_from_axis_angle(rotation_angle_z_radians * np.array([0, 0, 1]))
 
 # Apply the rotations to the point cloud
-# cropped_pcd.rotate(R_y, center=(0, 0, 0))
-# cropped_pcd.rotate(R_z, center=(0, 0, 0))
+cropped_pcd.rotate(R_y, center=(0, 0, 0))
+cropped_pcd.rotate(R_z, center=(0, 0, 0))
 
 # Save the cropped point cloud to a file (e.g., as "cropped_pointcloud.pcd")
-o3d.io.write_point_cloud(root_path + "/front_cropped_no_rot.pcd", cropped_pcd)
-print("Cropped point cloud saved as 'cropped_pointcloud.pcd'.")
+o3d.io.write_point_cloud(root_path + "/left_cropped.ply", cropped_pcd)
+print("Cropped point cloud saved as 'cropped_pointcloud.ply'.")
 
 
 # Visualize the processed point cloud
