@@ -7,10 +7,10 @@ def visualize_point_cloud(file_path):
     point_cloud = o3d.io.read_point_cloud(file_path)
 
     points = np.asarray(point_cloud.points)
-    # min_bound = points.min(axis=0)
-    # max_bound = points.max(axis=0)
-    # print(f"Min bound: {min_bound}")
-    # print(f"Max bound: {max_bound}")
+    min_bound = points.min(axis=0)
+    max_bound = points.max(axis=0)
+    print(f"Min bound: {min_bound}")
+    print(f"Max bound: {max_bound}")
 
     # Check if the point cloud is loaded successfully
     if not point_cloud:
@@ -22,7 +22,7 @@ def visualize_point_cloud(file_path):
 
 if __name__ == "__main__":
     # Specify the path to the .ply file
-    file_path = "/home/kia/Kiyanoush/Github/miscanthus_ai/data/enhanced_pointcloud.ply"
+    file_path = "/home/kiyanoush/Downloads/miscanthus360_point_cloud.ply"
 
     # Visualize the point cloud
     visualize_point_cloud(file_path)

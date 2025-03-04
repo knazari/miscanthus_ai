@@ -1448,3 +1448,525 @@ make: *** [Makefile:121: cmTC_2eefc/fast] Error 2
 
 
 
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_c2e44/fast && /usr/bin/make -f CMakeFiles/cmTC_c2e44.dir/build.make CMakeFiles/cmTC_c2e44.dir/build
+make[1]: Entering directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c2e44.dir/src.c.o
+/usr/lib/ccache/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_c2e44.dir/src.c.o   -c /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_c2e44
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c2e44.dir/link.txt --verbose=1
+/usr/lib/ccache/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_c2e44.dir/src.c.o  -o cmTC_c2e44 
+/usr/bin/ld: CMakeFiles/cmTC_c2e44.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_c2e44.dir/build.make:87: cmTC_c2e44] Error 1
+make[1]: Leaving directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_c2e44/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e1d4a/fast && /usr/bin/make -f CMakeFiles/cmTC_e1d4a.dir/build.make CMakeFiles/cmTC_e1d4a.dir/build
+make[1]: Entering directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e1d4a.dir/CheckFunctionExists.c.o
+/usr/lib/ccache/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_e1d4a.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_e1d4a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e1d4a.dir/link.txt --verbose=1
+/usr/lib/ccache/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_e1d4a.dir/CheckFunctionExists.c.o  -o cmTC_e1d4a  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_e1d4a.dir/build.make:87: cmTC_e1d4a] Error 1
+make[1]: Leaving directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_e1d4a/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4c9fc/fast && /usr/bin/make -f CMakeFiles/cmTC_4c9fc.dir/build.make CMakeFiles/cmTC_4c9fc.dir/build
+make[1]: Entering directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4c9fc.dir/src.c.o
+/usr/lib/ccache/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_4c9fc.dir/src.c.o   -c /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_4c9fc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4c9fc.dir/link.txt --verbose=1
+/usr/lib/ccache/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_4c9fc.dir/src.c.o  -o cmTC_4c9fc 
+/usr/bin/ld: CMakeFiles/cmTC_4c9fc.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_4c9fc.dir/build.make:87: cmTC_4c9fc] Error 1
+make[1]: Leaving directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_4c9fc/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_89c26/fast && /usr/bin/make -f CMakeFiles/cmTC_89c26.dir/build.make CMakeFiles/cmTC_89c26.dir/build
+make[1]: Entering directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_89c26.dir/CheckFunctionExists.c.o
+/usr/lib/ccache/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_89c26.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_89c26
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_89c26.dir/link.txt --verbose=1
+/usr/lib/ccache/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_89c26.dir/CheckFunctionExists.c.o  -o cmTC_89c26  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_89c26.dir/build.make:87: cmTC_89c26] Error 1
+make[1]: Leaving directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_89c26/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_05053/fast && /usr/bin/make -f CMakeFiles/cmTC_05053.dir/build.make CMakeFiles/cmTC_05053.dir/build
+make[1]: Entering directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_05053.dir/src.c.o
+/usr/lib/ccache/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_05053.dir/src.c.o   -c /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_05053
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_05053.dir/link.txt --verbose=1
+/usr/lib/ccache/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_05053.dir/src.c.o  -o cmTC_05053 
+/usr/bin/ld: CMakeFiles/cmTC_05053.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_05053.dir/build.make:87: cmTC_05053] Error 1
+make[1]: Leaving directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_05053/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4beca/fast && /usr/bin/make -f CMakeFiles/cmTC_4beca.dir/build.make CMakeFiles/cmTC_4beca.dir/build
+make[1]: Entering directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4beca.dir/CheckFunctionExists.c.o
+/usr/lib/ccache/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_4beca.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_4beca
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4beca.dir/link.txt --verbose=1
+/usr/lib/ccache/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_4beca.dir/CheckFunctionExists.c.o  -o cmTC_4beca  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_4beca.dir/build.make:87: cmTC_4beca] Error 1
+make[1]: Leaving directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_4beca/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6628d/fast && /usr/bin/make -f CMakeFiles/cmTC_6628d.dir/build.make CMakeFiles/cmTC_6628d.dir/build
+make[1]: Entering directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6628d.dir/src.c.o
+/usr/lib/ccache/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_6628d.dir/src.c.o   -c /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_6628d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6628d.dir/link.txt --verbose=1
+/usr/lib/ccache/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_6628d.dir/src.c.o  -o cmTC_6628d 
+/usr/bin/ld: CMakeFiles/cmTC_6628d.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_6628d.dir/build.make:87: cmTC_6628d] Error 1
+make[1]: Leaving directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_6628d/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a908b/fast && /usr/bin/make -f CMakeFiles/cmTC_a908b.dir/build.make CMakeFiles/cmTC_a908b.dir/build
+make[1]: Entering directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a908b.dir/CheckFunctionExists.c.o
+/usr/lib/ccache/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_a908b.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_a908b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a908b.dir/link.txt --verbose=1
+/usr/lib/ccache/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_a908b.dir/CheckFunctionExists.c.o  -o cmTC_a908b  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_a908b.dir/build.make:87: cmTC_a908b] Error 1
+make[1]: Leaving directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_a908b/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6ef0e/fast && /usr/bin/make -f CMakeFiles/cmTC_6ef0e.dir/build.make CMakeFiles/cmTC_6ef0e.dir/build
+make[1]: Entering directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6ef0e.dir/src.c.o
+/usr/lib/ccache/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_6ef0e.dir/src.c.o   -c /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_6ef0e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6ef0e.dir/link.txt --verbose=1
+/usr/lib/ccache/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_6ef0e.dir/src.c.o  -o cmTC_6ef0e 
+/usr/bin/ld: CMakeFiles/cmTC_6ef0e.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_6ef0e.dir/build.make:87: cmTC_6ef0e] Error 1
+make[1]: Leaving directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_6ef0e/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_69e1a/fast && /usr/bin/make -f CMakeFiles/cmTC_69e1a.dir/build.make CMakeFiles/cmTC_69e1a.dir/build
+make[1]: Entering directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_69e1a.dir/CheckFunctionExists.c.o
+/usr/lib/ccache/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_69e1a.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_69e1a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_69e1a.dir/link.txt --verbose=1
+/usr/lib/ccache/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_69e1a.dir/CheckFunctionExists.c.o  -o cmTC_69e1a  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_69e1a.dir/build.make:87: cmTC_69e1a] Error 1
+make[1]: Leaving directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_69e1a/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_c129d/fast && /usr/bin/make -f CMakeFiles/cmTC_c129d.dir/build.make CMakeFiles/cmTC_c129d.dir/build
+make[1]: Entering directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c129d.dir/src.c.o
+/usr/lib/ccache/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_c129d.dir/src.c.o   -c /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_c129d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c129d.dir/link.txt --verbose=1
+/usr/lib/ccache/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_c129d.dir/src.c.o  -o cmTC_c129d 
+/usr/bin/ld: CMakeFiles/cmTC_c129d.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_c129d.dir/build.make:87: cmTC_c129d] Error 1
+make[1]: Leaving directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_c129d/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4068b/fast && /usr/bin/make -f CMakeFiles/cmTC_4068b.dir/build.make CMakeFiles/cmTC_4068b.dir/build
+make[1]: Entering directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4068b.dir/CheckFunctionExists.c.o
+/usr/lib/ccache/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_4068b.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_4068b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4068b.dir/link.txt --verbose=1
+/usr/lib/ccache/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_4068b.dir/CheckFunctionExists.c.o  -o cmTC_4068b  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_4068b.dir/build.make:87: cmTC_4068b] Error 1
+make[1]: Leaving directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_4068b/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_5a022/fast && /usr/bin/make -f CMakeFiles/cmTC_5a022.dir/build.make CMakeFiles/cmTC_5a022.dir/build
+make[1]: Entering directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5a022.dir/src.c.o
+/usr/lib/ccache/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_5a022.dir/src.c.o   -c /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_5a022
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5a022.dir/link.txt --verbose=1
+/usr/lib/ccache/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_5a022.dir/src.c.o  -o cmTC_5a022 
+/usr/bin/ld: CMakeFiles/cmTC_5a022.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_5a022.dir/build.make:87: cmTC_5a022] Error 1
+make[1]: Leaving directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_5a022/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_0e5e1/fast && /usr/bin/make -f CMakeFiles/cmTC_0e5e1.dir/build.make CMakeFiles/cmTC_0e5e1.dir/build
+make[1]: Entering directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0e5e1.dir/CheckFunctionExists.c.o
+/usr/lib/ccache/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_0e5e1.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_0e5e1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0e5e1.dir/link.txt --verbose=1
+/usr/lib/ccache/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_0e5e1.dir/CheckFunctionExists.c.o  -o cmTC_0e5e1  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_0e5e1.dir/build.make:87: cmTC_0e5e1] Error 1
+make[1]: Leaving directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_0e5e1/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_1c154/fast && /usr/bin/make -f CMakeFiles/cmTC_1c154.dir/build.make CMakeFiles/cmTC_1c154.dir/build
+make[1]: Entering directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1c154.dir/src.c.o
+/usr/lib/ccache/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_1c154.dir/src.c.o   -c /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_1c154
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1c154.dir/link.txt --verbose=1
+/usr/lib/ccache/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_1c154.dir/src.c.o  -o cmTC_1c154 
+/usr/bin/ld: CMakeFiles/cmTC_1c154.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_1c154.dir/build.make:87: cmTC_1c154] Error 1
+make[1]: Leaving directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_1c154/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_cc243/fast && /usr/bin/make -f CMakeFiles/cmTC_cc243.dir/build.make CMakeFiles/cmTC_cc243.dir/build
+make[1]: Entering directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cc243.dir/CheckFunctionExists.c.o
+/usr/lib/ccache/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_cc243.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_cc243
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cc243.dir/link.txt --verbose=1
+/usr/lib/ccache/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_cc243.dir/CheckFunctionExists.c.o  -o cmTC_cc243  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_cc243.dir/build.make:87: cmTC_cc243] Error 1
+make[1]: Leaving directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_cc243/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f2323/fast && /usr/bin/make -f CMakeFiles/cmTC_f2323.dir/build.make CMakeFiles/cmTC_f2323.dir/build
+make[1]: Entering directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f2323.dir/src.c.o
+/usr/lib/ccache/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_f2323.dir/src.c.o   -c /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_f2323
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f2323.dir/link.txt --verbose=1
+/usr/lib/ccache/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_f2323.dir/src.c.o  -o cmTC_f2323 
+/usr/bin/ld: CMakeFiles/cmTC_f2323.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_f2323.dir/build.make:87: cmTC_f2323] Error 1
+make[1]: Leaving directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_f2323/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d16a4/fast && /usr/bin/make -f CMakeFiles/cmTC_d16a4.dir/build.make CMakeFiles/cmTC_d16a4.dir/build
+make[1]: Entering directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d16a4.dir/CheckFunctionExists.c.o
+/usr/lib/ccache/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_d16a4.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d16a4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d16a4.dir/link.txt --verbose=1
+/usr/lib/ccache/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_d16a4.dir/CheckFunctionExists.c.o  -o cmTC_d16a4  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_d16a4.dir/build.make:87: cmTC_d16a4] Error 1
+make[1]: Leaving directory '/home/kiyanoush/miscanthus_ws/src/viper_ros/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_d16a4/fast] Error 2
+
+
+

@@ -49,7 +49,7 @@ def on_click(event):
 
         # Save the segmented image
         segmented_image_bgr = cv2.cvtColor(segmented_image, cv2.COLOR_RGB2BGR)
-        cv2.imwrite(data_folder + "/segmented_miscanthus_image.jpg", segmented_image_bgr)
+        cv2.imwrite(data_folder + "/P1_right_seg.jpg", segmented_image_bgr)
         print("Segmented image saved as 'segmented_plant_image.jpg'")
 
         # Show the segmented image

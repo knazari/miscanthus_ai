@@ -12,6 +12,8 @@
 
   <!-- Static transform from world to camera_depth_frame -->
   <node pkg="tf2_ros" type="static_transform_publisher" name="world_to_camera_static_tf" args="0 0 0 0 0 0 world camera_link" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="world_to_base_static_tf" args="0 0 0 0 0 0 world base_link" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="world_to_odom_static_tf" args="0 0 0 0 0 0 world odom" />
 
   <!-- Start RViz with the predefined configuration -->
   <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find viper_ros)/config/realsense_pointcloud.rviz" /> -->
